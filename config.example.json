@@ -1,0 +1,8 @@
+{
+  "contentDir": "../content",
+  "maxBackups": 20,
+  "maxFileSizeMB": 100,
+  "jwtExpiresIn": "30d",
+  "jwtSecret": "",
+  "passwordHash": ""
+}
