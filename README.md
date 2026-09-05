@@ -42,9 +42,10 @@ of git; the setup script fills the two secrets.
 A site's whole `api/server.js`:
 
 ```js
+import { join } from 'node:path';
 import { start } from 'bzs-edit';
 import site from 'bzs-edit/sites/esme';
-start(site, new URL('./config.json', import.meta.url).pathname);
+start(site, join(import.meta.dirname, 'config.json'));
 ```
 
 `start` reads the config, binds `127.0.0.1:<site.port>` (override with `PORT`),

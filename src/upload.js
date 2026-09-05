@@ -13,10 +13,8 @@ import { EXT, IMAGE_MIMES, LOOKS_LIKE, makeJpeg, makePicture, shrinkRaster } fro
 // races) and can never escape uploadsDir.
 export function uploadRoutes(app, auth, site, { uploadsDir, maxFileSizeMB }) {
   const rawMimes = site.files;
-  const label = rawMimes.map(m => EXT[m].slice(1).toUpperCase());
-  const accepted = ['JPG', 'PNG', 'WebP', ...label.filter(l => !['JPG', 'PNG'].includes(l))];
-  const unique = [...new Set(accepted)];
-  const acceptMessage = `Please upload a ${unique.slice(0, -1).join(', ')} or ${unique.at(-1)}`;
+  const labels = [...new Set(['JPG', 'PNG', 'WebP', ...rawMimes.map(m => EXT[m].slice(1).toUpperCase())])];
+  const acceptMessage = `Please upload a ${labels.slice(0, -1).join(', ')} or ${labels.at(-1)}`;
 
   const upload = multer({
     storage: multer.memoryStorage(),
