@@ -6,6 +6,8 @@ and an upload folder behind a password, plus a React admin kit that shows the
 real site in a live-updating iframe while the client edits. One shared core,
 one short module per site.
 
+Used by: esmebelle.studio, ayopapo.studio, 00jordie.com.
+
 ```
 content/site.json ──fetch──▶ public page (renders from JSON at runtime)
        ▲                          ▲
